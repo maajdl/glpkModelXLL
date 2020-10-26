@@ -19,8 +19,14 @@ The ```glpkModelXLL``` addin also offers a scenario tool to compare different mo
 
 ## Installing and getting started
 * copy the whole project at a suitable place on your computer   
-* locate the folder    ```/glpkModelXLL/glpkModelXLL/bin/Release/```   
-* open the addin  ```glpkModelXLL-AddIn.xll```  with Excel
+* figure out if you need the 32 bits or the 64 bits version
+* 
+* for a 32 bits usage: locate the file    ```/glpkModelXLL/glpkModelXLL32/bin/x86/Release/glpkModelXLL-AddIn.xll```   
+* for a 64 bits usage: locate the file    ```/glpkModelXLL/glpkModelXLL64/bin/x64/Release/glpkModelXLL-AddIn.xll```  
+* 
+* for a unique use:    open this file by "Excel File Open" (with a security warning)
+* for a long-term use: open this file by "Excel File Options Add-ins Manage-Excel-Add-ins Go ..."
+* 
 * open a sample file from the root folder  ```/glpkModelXLL```
 
 ## Testing
