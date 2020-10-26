@@ -1,0 +1,47 @@
+<DnaLibrary Name="glpkModelXLL Add-In" RuntimeVersion="v4.0">
+  <ExternalLibrary Path="glpkModelXLL.dll" LoadFromBytes="true" Pack="true" />
+  
+  <!-- 
+       The RuntimeVersion attribute above allows two settings:
+       * RuntimeVersion="v2.0" - for .NET 2.0, 3.0 and 3.5
+       * RuntimeVersion="v4.0" - for .NET 4 and 4.5
+
+       Additional referenced assemblies can be specified by adding 'Reference' tags. 
+       These libraries will not be examined and registered with Excel as add-in libraries, 
+       but will be packed into the -packed.xll file and loaded at runtime as needed.
+       For example:
+       
+       <Reference Path="Another.Library.dll" Pack="true" />
+  
+       Excel-DNA also allows the xml for ribbon UI extensions to be specified in the .dna file.
+       See the main Excel-DNA site at http://excel-dna.net for downloads of the full distribution.
+  -->
+  <CustomUI>
+  <customUI xmlns='http://schemas.microsoft.com/office/2009/07/customui'>
+    <ribbon>
+      <tabs>
+        <tab id='glpkModel' label='glpkModel' visible='true'>
+          
+          <group id='runGroup' getLabel='runGroupLabel' visible='true'>
+            <button id='runBtn' label='solve'   size='large' imageMso='MacroPlay'         onAction='runBtn_Click'     supertip='Solve the glpk model.'/>
+            <button id='refBtn' label='refresh' size='large' imageMso='RefreshAll'        onAction='refreshBtn_Click' supertip='Refresh the workbook.'/>
+            <button id='modBtn' label='mod'     size='large' imageMso='FilePrintPreview'  onAction='modBtn_Click'     supertip='View the model file.'/>
+            <button id='datBtn' label='dat'     size='large' imageMso='FilePrintPreview'  onAction='datBtn_Click'     supertip='View the data file.'/>
+            <button id='lpBtn'  label='lp'      size='large' imageMso='FilePrintPreview'  onAction='lpBtn_Click'      supertip='View the lp file.' />
+          </group >
+          
+          <group id='automatic' label='automatic' visible='true'>
+            <checkBox id='solveAutom'   label='solve'   getPressed='autom_getPressed' onAction='autom_Click' supertip='Automatically solve the model when the workbook changes. Use only for small models!'/>
+            <checkBox id='refreshAutom' label='refresh' getPressed='autom_getPressed' onAction='autom_Click' supertip='Automatically refresh the workbook when a glpk model is solved.'/>
+          </group >
+          
+          <group id='scenarios' label='scenarios' visible='true'>
+            <button id='refreshScenarios' label='refresh' size='large' imageMso='RefreshAll'  onAction='refreshScenarios_Click' supertip='Refresh the scenarios stored in this workbook.'/>
+          </group >
+          
+        </tab>
+      </tabs>
+    </ribbon>
+  </customUI>
+  </CustomUI>
+</DnaLibrary>
